@@ -1,5 +1,5 @@
 {
-	"name":"vmwarephp/vmwarephp",
+	"name":"g0blinResearch/vmwarephp",
 	"type":"library",
 	"description":"Vmware vSphere bindings for PHP",
 	"keywords":["vmware", "php", "vsphere", "bindings", "vsphere sdk", "vmware php"],
@@ -19,6 +19,7 @@
 		"mockery/mockery":"dev-master"
 	},
         "autoload": {
-            "psr-0": { "Vmwarephp": "library" }
+            "psr-0": { "Vmwarephp": "library" },
+            "files": ["Bootstrap.php"]
         }
 }

@@ -18,7 +18,15 @@ class SoapClient {
 			'exceptions' => $useExceptions,
 			'connection_timeout' => 10,
 			'classmap' => $this->wsdlClassMapper->getClassMap(),
-			'features' => SOAP_SINGLE_ELEMENT_ARRAYS + SOAP_USE_XSI_ARRAY_TYPE
+			'features' => SOAP_SINGLE_ELEMENT_ARRAYS + SOAP_USE_XSI_ARRAY_TYPE,
+			'stream_context'     => stream_context_create(
+				array(
+					'ssl' => array(
+						'verify_peer'      => false,
+						'verify_peer_name' => false,
+					)
+				)
+			)
 		);
 		$soapClient = $this->makeDefaultSoapClient($this->wsdlFilePath, $options);
 		if (!$soapClient) throw new Ex\CannotCreateSoapClient();
